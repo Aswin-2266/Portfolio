@@ -110,7 +110,7 @@ const Hero = () => {
 
               <div className="w-72 h-72 md:w-80 md:h-80 bg-gradient-to-br from-blue-400 to-green-400 rounded-full flex items-center justify-center text-white text-6xl font-bold relative z-10 glass-effect">
                 <img
-                  src="Passport Size DP (3).jpg"
+                  src="my-image.jpg"
                   alt="Aswin's Profile Picture"
                   className="w-full h-full object-cover rounded-full"
                 />
