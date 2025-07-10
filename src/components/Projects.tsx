@@ -1,9 +1,12 @@
+import React, { useState } from 'react';
 import { ExternalLink, Github, Zap, Smartphone, Globe, Cpu } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 
 const Projects = () => {
+  const [activeCategory, setActiveCategory] = useState("All");
+
   const projects = [
     {
       title: "Personal Sustainability Tracker",
@@ -45,6 +48,13 @@ const Projects = () => {
 
   const categories = ["All", "Full-Stack", "IoT"];
 
+  const filteredProjects = projects.filter(project => {
+    if (activeCategory === "All") {
+      return true;
+    }
+    return project.category === activeCategory;
+  });
+
   return (
     <section id="projects" className="py-20 border-t border-border">
       <div className="container mx-auto px-4">
@@ -62,8 +72,9 @@ const Projects = () => {
           {categories.map((category) => (
             <Button
               key={category}
-              variant={category === "All" ? "default" : "outline"}
+              variant={activeCategory === category ? "default" : "outline"}
               className="rounded-full px-6"
+              onClick={() => setActiveCategory(category)}
             >
               {category}
             </Button>
@@ -72,7 +83,8 @@ const Projects = () => {
 
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
+          {/* Map over filteredProjects instead of raw projects */}
+          {filteredProjects.map((project, index) => (
             <Card key={index} className="card-hover glass-effect shadow-lg overflow-hidden">
               <CardHeader className="pb-4">
                 <div className="flex items-center gap-4 mb-4">
@@ -100,11 +112,11 @@ const Projects = () => {
                 {/* Action Buttons */}
                 <div className="flex gap-4">
                   {/* GitHub Link */}
-                  {project.github && (
+                  {project.github && ( 
                     <Button 
                       size="sm" 
                       className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground"
-                      asChild
+                      asChild 
                     >
                       <a href={project.github} target="_blank" rel="noopener noreferrer">
                         <Github size={16} className="mr-2" />
@@ -114,12 +126,12 @@ const Projects = () => {
                   )}
                   
                   {/* Demo Link */}
-                  {project.demo && (
+                  {project.demo && ( 
                     <Button 
                       size="sm" 
                       variant="outline" 
                       className="flex-1 border-border hover:bg-accent"
-                      asChild
+                      asChild 
                     >
                       <a href={project.demo} target="_blank" rel="noopener noreferrer">
                         <ExternalLink size={16} className="mr-2" />
