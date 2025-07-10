@@ -16,6 +16,15 @@ const Projects = () => {
       category: "Full-Stack"
     },
     {
+      title: "Java + Spring Boot AWS File Manager",
+      description: "File management system with upload/download via AWS S3 and email notifications. Boosted file access and satisfaction by 30%.",
+      tech: ["Java", "Spring Boot", "AWS S3", "JavaMailSender"],
+      icon: <Cpu className="text-orange-500" size={32} />,
+      github: "#",
+      demo: "#",
+      category: "Full-Stack"
+    },
+    {
       title: "Smart Forests – IoT Precision Farming",
       description: "IoT-based precision farming system with real-time farming data and auto irrigation. Reduced water use by 15% and improved yield.",
       tech: ["ESP32", "Firebase", "Weather API", "Soil Sensors"],
@@ -32,19 +41,10 @@ const Projects = () => {
       github: "#",
       demo: "#",
       category: "IoT"
-    },
-    {
-      title: "Java + Spring Boot AWS File Manager",
-      description: "File management system with upload/download via AWS S3 and email notifications. Boosted file access and satisfaction by 30%.",
-      tech: ["Java", "Spring Boot", "AWS S3", "JavaMailSender"],
-      icon: <Cpu className="text-orange-500" size={32} />,
-      github: "#",
-      demo: "#",
-      category: "Backend"
-    }
+    }    
   ];
 
-  const categories = ["All", "Full-Stack", "IoT", "Backend"];
+  const categories = ["All", "Full-Stack", "IoT"];
 
   return (
     <section id="projects" className="py-20 border-t border-border">
