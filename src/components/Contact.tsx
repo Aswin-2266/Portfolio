@@ -1,5 +1,5 @@
-
 import { useState } from 'react';
+import axios from 'axios';
 import { Mail, Github, Linkedin, MapPin, Phone, Send, GraduationCap, Briefcase } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -14,15 +14,47 @@ const Contact = () => {
     subject: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const FORMSPREE_FORM_ID = "https://formspree.io/f/mkgbdoon";
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Message sent!",
-      description: "Thank you for reaching out. I'll get back to you soon!",
-    });
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    setIsSubmitting(true);
+
+    try {
+      const response = await axios.post(FORMSPREE_FORM_ID, formData, {
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.status === 200) {
+        toast({
+          title: "Message Sent!",
+          description: "Thank you for reaching out. I'll get back to you soon!",
+          variant: "default",
+        });
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        // Handle Formspree specific errors if needed, though toast handles general ones
+        toast({
+          title: "Submission Failed",
+          description: "Oops! There was an issue sending your message. Please try again.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      toast({
+        title: "Error",
+        description: "A network error occurred. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -241,9 +273,14 @@ const Contact = () => {
                 <Button 
                   type="submit" 
                   className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-6 text-lg"
+                  disabled={isSubmitting}
                 >
-                  <Send className="mr-2" size={20} />
-                  Send Message
+                  {isSubmitting ? 'Sending...' : (
+                    <>
+                      <Send className="mr-2" size={20} />
+                      Send Message
+                    </>
+                  )}
                 </Button>
               </form>
             </CardContent>
