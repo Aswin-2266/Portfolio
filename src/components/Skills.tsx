@@ -1,6 +1,6 @@
-
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { ExternalLink } from 'lucide-react';
 
 const Skills = () => {
   const skillCategories = [
@@ -23,8 +23,30 @@ const Skills = () => {
   ];
 
   const certifications = [
-    "IBM Full Stack Software Developer (Coursera)",
-    "DBMS Expert (Coursera)"
+    {
+      name: "IBM Full Stack Software Developer Specialization (Coursera)",
+      url: "https://www.coursera.org/account/accomplishments/specialization/MJHQPK3D9S1N"
+    },
+    {
+      name: "Meta React Native Specialization (Coursera)",
+      url: "https://www.coursera.org/account/accomplishments/specialization/HEFS6GS7LENU"
+    },
+    {
+      name: "Prototypes in Figma: Creating an Initial Low Fidelity Design (Coursera)",
+      url: "https://www.coursera.org/account/accomplishments/records/7TTYSRWCGG5U"
+    },
+    {
+      name: "UX Design Fundamentals (Coursera)",
+      url: "https://www.coursera.org/account/accomplishments/records/K8LLJKXKAA4H"
+    },
+    {
+      name: "Microsoft Azure Cloud Services (Coursera)",
+      url: "https://www.coursera.org/account/accomplishments/records/TKL3AWTGQ44W"
+    },
+    {
+      name: "UiPath Automation Developer Associate (UiPath)",
+      url: "https://credentials.uipath.com/a7e419c7-85cc-4fd3-b837-dd7775bf269a"
+    }
   ];
 
   const hackathons = [
@@ -32,7 +54,25 @@ const Skills = () => {
     "L&T Techgium 8th Edition – Team Lead", 
     "L&T Edutech World Water Day 2025 – Team Lead",
     "WEN IGNITE Bootcamp 3.0 by Wadhwani Foundation – Team Lead",
-    "UYIR Road Safety Hackathon 2025"
+    "UYIR Road Safety Hackathon 2025 – Team Lead"
+  ];
+
+  const internshipExperience = [
+    {
+      title: "Signal & Telecommunication Intern",
+      company: "Southern Railways – Podanur, Coimbatore",
+      duration: "Sept–Oct 2023",
+      description: "Railway automation, relay interlocking, and safety systems.",
+      link: "https://drive.google.com/file/d/1-__MS_59zCXdC5gnS4ZNVhuEgDk5ZOJ2/view?usp=sharing"
+    },
+    // Add another internship here to see the grid layout in action:
+    // {
+    //   title: "Software Development Intern",
+    //   company: "Another Tech Company",
+    //   duration: "Jan 2024 – Apr 2024",
+    //   description: "Developed and maintained web applications.",
+    //   link: "https://www.example.com"
+    // },
   ];
 
   const softSkills = [
@@ -40,6 +80,8 @@ const Skills = () => {
     "Problem-solving & Team Collaboration", 
     "Self-motivated, Fast Learner"
   ];
+
+  const certBadgeClass = "border-accent/70 text-accent-foreground hover:bg-accent/20 hover:shadow-lg hover:scale-105 transition-all duration-500 ease-in-out";
 
   return (
     <section id="skills" className="py-20 bg-background/95 border-t border-border">
@@ -81,25 +123,33 @@ const Skills = () => {
 
         {/* Certifications */}
         <div className="text-center mb-16">
-          <h3 className="text-2xl font-semibold mb-8 font-poppins text-foreground">
+          <h3 className="text-2xl font-bold font-poppins text-gradient inline-block pb-2 border-b-2 border-accent/50 mb-8">
             Certifications
           </h3>
           <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
             {certifications.map((cert, index) => (
-              <Badge 
-                key={index} 
-                variant="outline" 
-                className="px-4 py-2 text-sm glass-effect border-primary/20 hover:bg-primary/10 transition-colors text-card-foreground font-medium"
+              <a
+                key={index}
+                href={cert.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block" 
               >
-                {cert}
-              </Badge>
+                <Badge 
+                  variant="outline" 
+                  className={`px-4 py-2 text-sm glass-effect font-medium cursor-pointer flex items-center justify-center gap-2 ${certBadgeClass}`}
+                >
+                  {cert.name}
+                  <ExternalLink className="h-4 w-4 shrink-0" /> 
+                </Badge>
+              </a>
             ))}
           </div>
         </div>
 
         {/* Hackathons */}
         <div className="text-center mb-16">
-          <h3 className="text-2xl font-semibold mb-8 font-poppins text-foreground">
+          <h3 className="text-2xl font-bold font-poppins text-gradient inline-block pb-2 border-b-2 border-accent/50 mb-8">
             Hackathons & Leadership
           </h3>
           <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
@@ -115,9 +165,74 @@ const Skills = () => {
           </div>
         </div>
 
+        {/* Internship Experience - Conditional Rendering for centering */}
+        <div className="text-center mb-16">
+          <h3 className="text-2xl font-bold font-poppins text-gradient inline-block pb-2 border-b-2 border-accent/50 mb-8">
+            Internship Experience
+          </h3>
+          {internshipExperience.length === 1 ? (
+            // If only one internship, center it using flexbox
+            <div className="flex justify-center items-center max-w-4xl mx-auto">
+              {internshipExperience.map((internship, index) => (
+                <Card
+                  key={index}
+                  // Added responsive width for single card to prevent it from stretching too wide
+                  className="glass-effect shadow-lg text-left hover:shadow-xl hover:scale-[1.02] transition-all duration-500 ease-in-out w-full sm:w-3/4 md:w-2/3 lg:w-1/2"
+                >
+                  <CardHeader className="pb-2">
+                    <CardTitle className="text-xl font-poppins text-card-foreground flex items-center gap-2">
+                      {internship.title}
+                      {internship.link && (
+                        <a href={internship.link} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                          <ExternalLink size={18} />
+                        </a>
+                      )}
+                    </CardTitle>
+                    <p className="text-base text-muted-foreground">{internship.company}</p>
+                    <p className="text-sm text-muted-foreground">{internship.duration}</p>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {internship.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          ) : (
+            // If more than one internship, use the grid layout
+            <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-6 max-w-4xl mx-auto">
+              {internshipExperience.map((internship, index) => (
+                <Card
+                  key={index}
+                  className="glass-effect shadow-lg text-left hover:shadow-xl hover:scale-[1.02] transition-all duration-500 ease-in-out"
+                >
+                  <CardHeader className="pb-2">
+                    <CardTitle className="text-xl font-poppins text-card-foreground flex items-center gap-2">
+                      {internship.title}
+                      {internship.link && (
+                        <a href={internship.link} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                          <ExternalLink size={18} />
+                        </a>
+                      )}
+                    </CardTitle>
+                    <p className="text-base text-muted-foreground">{internship.company}</p>
+                    <p className="text-sm text-muted-foreground">{internship.duration}</p>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {internship.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          )}
+        </div>
+
         {/* Soft Skills */}
         <div className="text-center">
-          <h3 className="text-2xl font-semibold mb-8 font-poppins text-foreground">
+          <h3 className="text-2xl font-bold font-poppins text-gradient inline-block pb-2 border-b-2 border-accent/50 mb-8">
             Soft Skills & Languages
           </h3>
           <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto mb-6">
@@ -143,6 +258,7 @@ const Skills = () => {
             ))}
           </div>
         </div>
+
       </div>
     </section>
   );

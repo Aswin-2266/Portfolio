@@ -38,7 +38,6 @@ const Contact = () => {
         });
         setFormData({ name: '', email: '', subject: '', message: '' });
       } else {
-        // Handle Formspree specific errors if needed, though toast handles general ones
         toast({
           title: "Submission Failed",
           description: "Oops! There was an issue sending your message. Please try again.",
@@ -182,7 +181,7 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Internship */}
+            {/* Internship
             <div>
               <h4 className="text-lg font-semibold mb-4 text-foreground flex items-center gap-2">
                 <Briefcase className="text-green-500" size={20} />
@@ -196,7 +195,7 @@ const Contact = () => {
                   Railway automation, relay interlocking, and safety systems
                 </p>
               </div>
-            </div>
+            </div> */}
 
             {/* Social Links */}
             <div>

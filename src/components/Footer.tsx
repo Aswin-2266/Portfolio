@@ -47,7 +47,8 @@ const Footer = () => {
 
         <div className="border-t border-border mt-8 sm:mt-12 pt-6 sm:pt-8 text-center">
           <p className="text-muted-foreground flex items-center justify-center gap-2 text-sm sm:text-base">
-            Made with <Heart className="text-red-500" size={16} /> by Aswin S
+            {/* Made with <Heart className="text-red-500" size={16} /> by Aswin S */}
+            Designed & Developed by Aswin S
           </p>
           <p className="text-muted-foreground text-xs sm:text-sm mt-2">
             © 2024 All rights reserved.
