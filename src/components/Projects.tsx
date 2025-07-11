@@ -14,7 +14,7 @@ const Projects = () => {
       tech: ["React", "Express.js", "Node.js", "PostgreSQL", "JWT", "bcrypt"],
       icon: <Globe className="text-green-500" size={32} />,
       github: "https://github.com/Aswin-2266/personal-sustainability-tracker", 
-      demo: "https://www.linkedin.com/posts/aswin41_hackathonexperience-webdevelopment-sustainabilitytech-activity-7347440404008419328-Jcv2?utm_source=share&utm_medium=member_desktop&rcm=ACoAADzKcWABoSgh2LiGnZ-erxPJYxFmBV2mXdU", 
+      demo: "https://personal-sustainability-tracker.vercel.app/login", 
       category: "Full-Stack"
     },
     {
