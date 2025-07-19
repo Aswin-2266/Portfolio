@@ -19,15 +19,15 @@ const Skills = () => {
   },
   {
     title: "Tools & Platforms",
-    skills: ["Git & GitHub", "Linux", "Postman", "VS Code", "Canva"]
-  },
-  {
-    title: "IoT & Embedded Systems",
-    skills: ["Raspberry Pi", "ESP32", "Arduino", "LoRa", "Sensors: DHT22, IR, Piezoelectric, TDS"]
+    skills: ["Git & GitHub", "Linux", "Postman", "VS Code", "Canva",]
   },
   {
     title: "Core CS Concepts",
     skills: ["Data Structures and Algorithms", "Object-Oriented Programming", "API Design", "MVC Architecture"]
+  },
+  {
+    title: "IoT & Embedded Systems",
+    skills: ["Raspberry Pi", "ESP32", "Arduino", "LoRa", "Proteus", "Arduino IDE", "MultiSim", "TinkerCad"]
   }
   ];
 
