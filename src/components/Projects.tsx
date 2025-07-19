@@ -292,18 +292,16 @@ const ProjectImageCarousel: React.FC<ProjectImageCarouselProps> = ({ images, tit
     if (emblaApi) emblaApi.scrollNext();
   }, [emblaApi]);
 
-  // Effect for auto-scrolling
   useEffect(() => {
-    if (!emblaApi || !isPlaying) return; // Only run if api exists and isPlaying is true
+    if (!emblaApi || !isPlaying) return;
 
     const autoplay = setInterval(() => {
       emblaApi.scrollNext();
-    }, 1800); // Scrolls every 3 seconds
+    }, 1800);
 
-    return () => clearInterval(autoplay); // Cleanup on component unmount or dependency change
+    return () => clearInterval(autoplay);
   }, [emblaApi, isPlaying]);
 
-  // Pause auto-play on hover
   const handleMouseEnter = () => setIsPlaying(false);
   const handleMouseLeave = () => setIsPlaying(true);
 

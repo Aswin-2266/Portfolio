@@ -51,7 +51,7 @@ const Skills = () => {
 
   const hackathons = [
     "Smart India Hackathon 2024 – Team Lead",
-    "L&T Techgium 8th Edition – Team Lead", 
+    "L&T Techgium 8th Edition – Team Lead",
     "L&T Edutech World Water Day 2025 – Team Lead",
     "WEN IGNITE Bootcamp 3.0 by Wadhwani Foundation – Team Lead",
     "UYIR Road Safety Hackathon 2025 – Team Lead"
@@ -63,7 +63,7 @@ const Skills = () => {
       company: "Southern Railways – Podanur, Coimbatore",
       duration: "Sept–Oct 2023",
       description: "Railway automation, relay interlocking, and safety systems.",
-      link: "https://drive.google.com/file/d/1-__MS_59zCXdC5gnS4ZNVhuEgDk5ZOJ2/view?usp=sharing"
+      link: "https://drive.google.com/drive/folders/1vgEZu6M9tLKYWyyTMlOauRwjFVbrkwmx?usp=sharing"
     },
     // Add another internship here to see the grid layout in action:
     // {
@@ -77,7 +77,7 @@ const Skills = () => {
 
   const softSkills = [
     "Strong Communication & Leadership",
-    "Problem-solving & Team Collaboration", 
+    "Problem-solving & Team Collaboration",
     "Self-motivated, Fast Learner"
   ];
 
@@ -107,9 +107,9 @@ const Skills = () => {
               <CardContent>
                 <div className="flex flex-wrap gap-3 justify-center">
                   {category.skills.map((skill, skillIndex) => (
-                    <Badge 
-                      key={skillIndex} 
-                      variant="outline" 
+                    <Badge
+                      key={skillIndex}
+                      variant="outline"
                       className="px-4 py-2 text-sm glass-effect border-primary/20 hover:bg-primary/10 transition-colors text-card-foreground font-medium"
                     >
                       {skill}
@@ -133,14 +133,14 @@ const Skills = () => {
                 href={cert.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block" 
+                className="block"
               >
-                <Badge 
-                  variant="outline" 
+                <Badge
+                  variant="outline"
                   className={`px-4 py-2 text-sm glass-effect font-medium cursor-pointer flex items-center justify-center gap-2 ${certBadgeClass}`}
                 >
                   {cert.name}
-                  <ExternalLink className="h-4 w-4 shrink-0" /> 
+                  <ExternalLink className="h-4 w-4 shrink-0" />
                 </Badge>
               </a>
             ))}
@@ -154,9 +154,9 @@ const Skills = () => {
           </h3>
           <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
             {hackathons.map((hackathon, index) => (
-              <Badge 
-                key={index} 
-                variant="outline" 
+              <Badge
+                key={index}
+                variant="outline"
                 className="px-4 py-2 text-sm glass-effect border-green-500/20 hover:bg-green-500/10 transition-colors text-card-foreground font-medium"
               >
                 {hackathon}
@@ -166,69 +166,82 @@ const Skills = () => {
         </div>
 
         {/* Internship Experience - Conditional Rendering for centering */}
-        <div className="text-center mb-16">
-          <h3 className="text-2xl font-bold font-poppins text-gradient inline-block pb-2 border-b-2 border-accent/50 mb-8">
-            Internship Experience
-          </h3>
-          {internshipExperience.length === 1 ? (
-            // If only one internship, center it using flexbox
-            <div className="flex justify-center items-center max-w-4xl mx-auto">
-              {internshipExperience.map((internship, index) => (
-                <Card
-                  key={index}
-                  // Added responsive width for single card to prevent it from stretching too wide
-                  className="glass-effect shadow-lg text-left hover:shadow-xl hover:scale-[1.02] transition-all duration-500 ease-in-out w-full sm:w-3/4 md:w-2/3 lg:w-1/2"
-                >
-                  <CardHeader className="pb-2">
-                    <CardTitle className="text-xl font-poppins text-card-foreground flex items-center gap-2">
-                      {internship.title}
-                      {internship.link && (
-                        <a href={internship.link} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-                          <ExternalLink size={18} />
-                        </a>
-                      )}
-                    </CardTitle>
-                    <p className="text-base text-muted-foreground">{internship.company}</p>
-                    <p className="text-sm text-muted-foreground">{internship.duration}</p>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {internship.description}
-                    </p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          ) : (
-            // If more than one internship, use the grid layout
-            <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-6 max-w-4xl mx-auto">
-              {internshipExperience.map((internship, index) => (
-                <Card
-                  key={index}
-                  className="glass-effect shadow-lg text-left hover:shadow-xl hover:scale-[1.02] transition-all duration-500 ease-in-out"
-                >
-                  <CardHeader className="pb-2">
-                    <CardTitle className="text-xl font-poppins text-card-foreground flex items-center gap-2">
-                      {internship.title}
-                      {internship.link && (
-                        <a href={internship.link} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-                          <ExternalLink size={18} />
-                        </a>
-                      )}
-                    </CardTitle>
-                    <p className="text-base text-muted-foreground">{internship.company}</p>
-                    <p className="text-sm text-muted-foreground">{internship.duration}</p>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {internship.description}
-                    </p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          )}
-        </div>
+<div className="text-center mb-16">
+  <h3 className="text-2xl font-bold font-poppins text-gradient inline-block pb-2 border-b-2 border-accent/50 mb-8">
+    Internship Experience
+  </h3>
+  {internshipExperience.length === 1 ? (
+    // If only one internship, center it using flexbox
+    <div className="flex justify-center items-center max-w-4xl mx-auto">
+      {internshipExperience.map((internship, index) => (
+        <a
+          key={index}
+          href={internship.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block w-full sm:w-3/4 md:w-2/3 lg:w-1/2"
+        >
+          <Card
+            className="glass-effect shadow-lg text-left hover:shadow-xl hover:scale-[1.02] transition-all duration-500 ease-in-out"
+          >
+            <CardHeader className="pb-2">
+              <CardTitle className="text-xl font-poppins text-card-foreground flex items-center gap-2">
+                {internship.title}
+                {/* Apply hover effect to ExternalLink directly */}
+                <ExternalLink
+                  size={18}
+                  className="shrink-0 text-muted-foreground hover:text-blue-500 transition-colors"
+                />
+              </CardTitle>
+              <p className="text-base text-muted-foreground">{internship.company}</p>
+              <p className="text-sm text-muted-foreground">{internship.duration}</p>
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground leading-relaxed">
+                {internship.description}
+              </p>
+            </CardContent>
+          </Card>
+        </a>
+      ))}
+    </div>
+  ) : (
+    // If more than one internship, use the grid layout
+    <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-6 max-w-4xl mx-auto">
+      {internshipExperience.map((internship, index) => (
+        <a
+          key={index}
+          href={internship.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block" // Ensure the link takes full width of the grid item
+        >
+          <Card
+            className="glass-effect shadow-lg text-left hover:shadow-xl hover:scale-[1.02] transition-all duration-500 ease-in-out"
+          >
+            <CardHeader className="pb-2">
+              <CardTitle className="text-xl font-poppins text-card-foreground flex items-center gap-2">
+                {internship.title}
+                {/* Apply hover effect to ExternalLink directly */}
+                <ExternalLink
+                  size={18}
+                  className="shrink-0 text-muted-foreground hover:text-blue-500 transition-colors"
+                />
+              </CardTitle>
+              <p className="text-base text-muted-foreground">{internship.company}</p>
+              <p className="text-sm text-muted-foreground">{internship.duration}</p>
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground leading-relaxed">
+                {internship.description}
+              </p>
+            </CardContent>
+          </Card>
+        </a>
+      ))}
+    </div>
+  )}
+</div>
 
         {/* Soft Skills */}
         <div className="text-center">
@@ -237,9 +250,9 @@ const Skills = () => {
           </h3>
           <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto mb-6">
             {softSkills.map((skill, index) => (
-              <Badge 
-                key={index} 
-                variant="outline" 
+              <Badge
+                key={index}
+                variant="outline"
                 className="px-4 py-2 text-sm glass-effect border-blue-500/20 hover:bg-blue-500/10 transition-colors text-card-foreground font-medium"
               >
                 {skill}
@@ -248,9 +261,9 @@ const Skills = () => {
           </div>
           <div className="flex flex-wrap justify-center gap-4">
             {["English", "Tamil", "Malayalam"].map((language, index) => (
-              <Badge 
-                key={index} 
-                variant="outline" 
+              <Badge
+                key={index}
+                variant="outline"
                 className="px-4 py-2 text-sm glass-effect border-purple-500/20 hover:bg-purple-500/10 transition-colors text-card-foreground font-medium"
               >
                 {language}
