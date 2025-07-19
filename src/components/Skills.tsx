@@ -4,22 +4,31 @@ import { ExternalLink } from 'lucide-react';
 
 const Skills = () => {
   const skillCategories = [
-    {
-      title: "Programming Languages",
-      skills: ["Java", "C", "JavaScript", "Python"]
-    },
-    {
-      title: "Web & Cloud Technologies",
-      skills: ["HTML, CSS", "Node.js", "Express", "REST APIs", "Spring Boot", "Firebase", "AWS", "PostgreSQL"]
-    },
-    {
-      title: "Tools & Platforms",
-      skills: ["Git/GitHub", "Linux"]
-    },
-    {
-      title: "IoT & Embedded",
-      skills: ["Raspberry Pi", "ESP32", "Arduino"]
-    }
+     {
+    title: "Programming Languages",
+    skills: ["Java", "C", "JavaScript", "Python", "TypeScript"]
+  },
+  {
+    title: "Web & Backend Technologies",
+    skills: ["React.js", "HTML & CSS", "Node.js", "Express.js", "REST APIs", "Spring Boot"]
+  },
+  {
+    title: "Cloud, Deployment & Databases",
+    skills: [
+      "AWS (S3, IAM)", "Firebase (Authentication, Realtime DB)", "Vercel", "Render", "PostgreSQL", "MongoDB"]
+  },
+  {
+    title: "Tools & Platforms",
+    skills: ["Git & GitHub", "Linux", "Postman", "VS Code", "Canva"]
+  },
+  {
+    title: "IoT & Embedded Systems",
+    skills: ["Raspberry Pi", "ESP32", "Arduino", "LoRa", "Sensors: DHT22, IR, Piezoelectric, TDS"]
+  },
+  {
+    title: "Core CS Concepts",
+    skills: ["Data Structures and Algorithms", "Object-Oriented Programming", "API Design", "MVC Architecture"]
+  }
   ];
 
   const certifications = [
