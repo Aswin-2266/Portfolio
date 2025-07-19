@@ -1,5 +1,5 @@
-import React, { useState, useCallback } from 'react';
-import { ExternalLink, Github, Zap, Smartphone, Globe, Cpu, Eye, ChevronLeft, ChevronRight } from 'lucide-react'; // Import Chevron icons
+import React, { useState, useCallback, useEffect } from 'react';
+import { ExternalLink, Github, Zap, Smartphone, Globe, Cpu, Eye, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -34,8 +34,8 @@ const Projects = () => {
       description: "Full-stack web app with user authentication, sustainability data logging, leaderboard, and visualization. Increased eco-friendly actions by 25%.",
       tech: ["React", "Express.js", "Node.js", "PostgreSQL", "JWT", "bcrypt"],
       icon: <Globe className="text-green-500" size={32} />,
-      github: "https://github.com/Aswin-2266/personal-sustainability-tracker", 
-      demo: "https://personal-sustainability-tracker.vercel.app/login", 
+      github: "https://github.com/Aswin-2266/personal-sustainability-tracker",
+      demo: "https://personal-sustainability-tracker.vercel.app/login",
       category: "Full-Stack",
       images: [
         "/project-images/sustainability-tracker-1.png",
@@ -43,50 +43,50 @@ const Projects = () => {
         "/project-images/sustainability-tracker-3.png",
         "/project-images/sustainability-tracker-4.png",
         "/project-images/sustainability-tracker-5.png",
-      ] 
+      ]
     },
     {
       title: "AWS S3 File Manager",
       description: "File management system with upload/download via AWS S3 and email notifications. Boosted file access and satisfaction by 30%.",
       tech: ["HTML/CSS", "JavaScript", "Java", "Spring Boot", "AWS S3", "JavaMailSender"],
       icon: <Cpu className="text-orange-500" size={32} />,
-      github: "https://github.com/Aswin-2266/S3FileManager", 
-      demo: null, 
+      github: "https://github.com/Aswin-2266/S3FileManager",
+      demo: null,
       category: "Full-Stack",
       images: [
         "/project-images/s3-file-manager-1.png",
         "/project-images/s3-file-manager-2.png",
         "/project-images/s3-file-manager-3.png",
         "/project-images/s3-file-manager-4.png",
-      ] 
+      ]
     },
     {
       title: "Smart Forests – IoT Precision Farming",
       description: "IoT-based precision farming system with real-time farming data and auto irrigation. Reduced water use by 15% and improved yield.",
       tech: ["HTML/CSS", "ESP32", "Firebase", "Weather API", "Soil Sensors"],
       icon: <Zap className="text-blue-500" size={32} />,
-      github: null, 
-      demo: "https://drive.google.com/drive/u/0/folders/1zRN8hcxwmR72j5tUu1LuPoXAhQ8HUfQM", 
+      github: null,
+      demo: "https://drive.google.com/drive/u/0/folders/1zRN8hcxwmR72j5tUu1LuPoXAhQ8HUfQM",
       category: "IoT",
       images: [
         "/project-images/smart-forests-1.jpg",
-      ] 
+      ]
     },
     {
       title: "Snowfall Detection System",
       description: "IoT monitoring system with real-time alerts, dashboard, and SMS/email notifications. Improved snow-clearing efficiency by 20%.",
       tech: ["HTML/CSS", "Firebase", "DHT22", "Piezo", "TDS Sensors"],
       icon: <Smartphone className="text-purple-500" size={32} />,
-      github: null, 
-      demo: "https://drive.google.com/drive/u/0/folders/1n_hbfHQY-mEPegKZkOiMFk1eukXvDdlH", 
+      github: null,
+      demo: "https://drive.google.com/drive/u/0/folders/1n_hbfHQY-mEPegKZkOiMFk1eukXvDdlH",
       category: "IoT",
       images: [
         "/project-images/snowfall-detection-1.jpg",
         "/project-images/snowfall-detection-2.png",
         "/project-images/snowfall-detection-3.png",
         "/project-images/snowfall-detection-4.jpeg",
-      ] 
-    }    
+      ]
+    }
   ];
 
   const categories = ["All", "Full-Stack", "IoT"];
@@ -137,20 +137,25 @@ const Projects = () => {
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
           {filteredProjects.map((project, index) => (
-            <Card 
-              key={index} 
-              className="group card-hover glass-effect shadow-lg overflow-hidden cursor-pointer 
-                         relative transform transition-all duration-300 hover:scale-[1.02] hover:shadow-xl" 
+            <Card
+              key={index}
+              className="relative group card-hover glass-effect shadow-lg overflow-hidden cursor-pointer
+                transform transition-all duration-300 hover:scale-[1.02] hover:shadow-xl"
               onClick={() => openProjectModal(project)}
             >
-              {/* Overlay for "View Details" on the card itself */}
-              <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center 
-                              opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 rounded-lg">
-                <div className="text-white text-xl font-bold flex flex-col items-center gap-2">
-                  <Eye size={36} /> 
-                  View Details
-                </div>
-              </div>
+              {/* Persistent Eye Icon at Top-Right */}
+              <Button
+                variant="ghost"
+                size="icon"
+                className="absolute top-3 right-3 z-10 bg-background/70 hover:bg-accent p-2 shadow-lg rounded-full"
+                onClick={e => {
+                  e.stopPropagation();
+                  openProjectModal(project);
+                }}
+              >
+                <Eye size={22} className="text-foreground" />
+                <span className="sr-only">View Details</span>
+              </Button>
               
               <CardHeader className="pb-4 pt-6">
                 <div className="flex items-center gap-4 mb-4">
@@ -175,14 +180,14 @@ const Projects = () => {
                   ))}
                 </div>
 
-                {/* Action Buttons - Kept here for quick access, but also in modal */}
+                {/* Action Buttons */}
                 <div className="flex gap-4">
-                  {project.github && ( 
-                    <Button 
-                      size="sm" 
+                  {project.github && (
+                    <Button
+                      size="sm"
                       className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground"
-                      asChild 
-                      onClick={(e) => e.stopPropagation()} 
+                      asChild
+                      onClick={e => e.stopPropagation()}
                     >
                       <a href={project.github} target="_blank" rel="noopener noreferrer">
                         <Github size={16} className="mr-2" />
@@ -190,14 +195,14 @@ const Projects = () => {
                       </a>
                     </Button>
                   )}
-                  
-                  {project.demo && ( 
-                    <Button 
-                      size="sm" 
-                      variant="outline" 
+
+                  {project.demo && (
+                    <Button
+                      size="sm"
+                      variant="outline"
                       className="flex-1 border-border hover:bg-accent"
-                      asChild 
-                      onClick={(e) => e.stopPropagation()} 
+                      asChild
+                      onClick={e => e.stopPropagation()}
                     >
                       <a href={project.demo} target="_blank" rel="noopener noreferrer">
                         <ExternalLink size={16} className="mr-2" />
@@ -223,7 +228,7 @@ const Projects = () => {
               </DialogDescription>
             </DialogHeader>
             
-            {/* Carousel of Images - NEW ADDITION */}
+            {/* Carousel of Images */}
             {selectedProject.images && selectedProject.images.length > 0 && (
               <ProjectImageCarousel images={selectedProject.images} title={selectedProject.title} />
             )}
@@ -276,7 +281,8 @@ interface ProjectImageCarouselProps {
 }
 
 const ProjectImageCarousel: React.FC<ProjectImageCarouselProps> = ({ images, title }) => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }); // loop for continuous scrolling
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+  const [isPlaying, setIsPlaying] = useState(true); // State to manage auto-play
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
@@ -286,16 +292,35 @@ const ProjectImageCarousel: React.FC<ProjectImageCarouselProps> = ({ images, tit
     if (emblaApi) emblaApi.scrollNext();
   }, [emblaApi]);
 
+  // Effect for auto-scrolling
+  useEffect(() => {
+    if (!emblaApi || !isPlaying) return; // Only run if api exists and isPlaying is true
+
+    const autoplay = setInterval(() => {
+      emblaApi.scrollNext();
+    }, 1800); // Scrolls every 3 seconds
+
+    return () => clearInterval(autoplay); // Cleanup on component unmount or dependency change
+  }, [emblaApi, isPlaying]);
+
+  // Pause auto-play on hover
+  const handleMouseEnter = () => setIsPlaying(false);
+  const handleMouseLeave = () => setIsPlaying(true);
+
   return (
-    <div className="embla relative mt-4 mb-6 rounded-lg overflow-hidden shadow-md">
+    <div
+      className="embla relative mt-4 mb-6 rounded-lg overflow-hidden shadow-md"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container flex">
           {images.map((image, index) => (
             <div className="embla__slide flex-shrink-0 flex-grow-0 basis-full" key={index}>
-              <img 
-                src={image} 
-                alt={`${title} Screenshot ${index + 1}`} 
-                className="w-full h-64 md:h-80 lg:h-96 object-cover object-center" 
+              <img
+                src={image}
+                alt={`${title} Screenshot ${index + 1}`}
+                className="w-full h-64 md:h-80 lg:h-96 object-cover object-center"
               />
             </div>
           ))}
