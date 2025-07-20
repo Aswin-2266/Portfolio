@@ -1,73 +1,144 @@
-# Welcome to your Lovable project
+# 🌐 Personal Developer Portfolio
 
-## Project info
+> A modern, interactive, and fully responsive personal portfolio website showcasing my skills, projects, certifications, and professional experiences as an Electronics & Communication Engineer.
 
-**URL**: https://lovable.dev/projects/99196d4a-1dc2-4e38-8ebc-185a9423ff3d
+---
 
-## How can I edit this code?
+## 🧠 Overview
 
-There are several ways of editing your application.
+This portfolio website serves as a central hub to present my journey, expertise, and projects in the fields of web development, IoT, and sustainable technology.  
+It's designed to provide a comprehensive view of my capabilities, from front-end development and UI/UX design to backend integration and problem-solving.
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/99196d4a-1dc2-4e38-8ebc-185a9423ff3d) and start prompting.
+## 🚀 Live Demo
 
-Changes made via Lovable will be committed automatically to this repo.
+🌐 [View Portfolio Website](https://portfolio-aswin04.vercel.app/)
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🔧 Tech Stack
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- **Frontend Framework**: React  
+- **Styling**: Tailwind CSS  
+- **UI Components**: Shadcn/ui  
+- **State Management**: React Context API (for global theme management)  
+- **Routing**: React Router DOM (for single-page application navigation and 404 handling)  
+- **Form Handling**: Axios (for HTTP requests to Formspree)  
+- **Image Carousel**: Embla Carousel React  
+- **Icons**: Lucide-React  
+- **Utility Functions**: clsx and tailwind-merge (for efficient class management)  
+- **Deployment**: Vercel  
 
-Follow these steps:
+---
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## 📂 Features
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### 🔹 Interactive Home (Hero) Section
+- Dynamic Introduction with fade-in-up animations
+- Call-to-Actions: “View Projects,” “Contact Me,” “Download Resume”
+- Social Links: GitHub, LinkedIn, Email
+- Animated floating profile image for modern aesthetics
 
-# Step 3: Install the necessary dependencies.
-npm i
+### 🔹 Comprehensive About Section
+- Highlights: Anna University, Southern Railways Internship, Hackathon Leadership, Innovation Projects
+- Glass-effect cards for key accomplishments
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+### 🔹 Detailed Skills & Expertise Module
+- Categorized Skills: Programming Languages, Web & Cloud Technologies, Tools, IoT/Embedded Systems
+- Certifications: Hover-enabled, clickable badges for verification
+- Dynamic Internship Cards: Responsive layout with hover animations
+- Soft Skills & Languages included
 
-**Edit a file directly in GitHub**
+### 🔹 Engaging Projects Showcase
+- Diverse project portfolio with tech stacks and icons
+- Modal popups with in-depth info and image carousels
+- Direct GitHub/live demo links
+- Project filtering by category
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### 🔹 Streamlined Contact Section
+- Functional contact form via Formspree
+- Toast notifications for submission status
+- Displays email, phone, and location
+- Social links repeated for easy access
 
-**Use GitHub Codespaces**
+### 🔹 Global Features & Enhancements
+- Fully responsive design (desktop, tablet, mobile)
+- Dark/Light Theme Toggle with localStorage persistence
+- Smooth scrolling navigation
+- CSS animations: float, fadeInUp, slideInLeft
+- Custom utility classes: `text-gradient`, `glass-effect`
+- Custom 404 page for invalid routes
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+---
 
-## What technologies are used for this project?
+## 🎯 Purpose & Impact
 
-This project is built with:
+This project was built to:
+- Establish a professional online presence
+- Present my project portfolio to recruiters and hackathon judges
+- Practice responsive UI/UX design principles
+- Learn and apply deployment workflows (Vercel)
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+---
 
-## How can I deploy this project?
+## ✨ What I Learned
 
-Simply open [Lovable](https://lovable.dev/projects/99196d4a-1dc2-4e38-8ebc-185a9423ff3d) and click on Share -> Publish.
+- Structuring and writing content that communicates my story effectively
+- Responsive layout techniques and mobile-first design
+- Handling deployment and version control using Git
+- Importance of branding in technical portfolios
 
-## Can I connect a custom domain to my Lovable project?
+---
 
-Yes, you can!
+## 💡 Future Improvements
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+- Integrate a blog section for writing about projects or technical tutorials
+- Add advanced animations using Framer Motion or GSAP
+- Include testimonials or peer recommendations
+- Improve accessibility (e.g., full keyboard navigation)
+- Performance optimizations (lazy loading, code splitting)
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+---
+
+## 📸 Screenshots
+
+![Homepage](./screenshots/home.png)  
+![Projects Modal](./screenshots/projects-modal.png)  
+![Dark Mode Toggle](./screenshots/dark-mode.png)
+![Contact Form](./screenshots/contact-form.png)
+
+---
+
+## 📄 Resume
+
+📄 [Download My Resume](https://drive.google.com/drive/folders/1DQFLudEdHGhN86xVA2fbUdWDTR872zNr?usp=drive_link)  
+
+---
+
+## 🙋‍♂️ Author
+
+**Aswin S**  
+*Electronics & Communication Engineer | Full-Stack & IoT Developer*  
+
+🔗 [LinkedIn](https://www.linkedin.com/in/aswin41/) • [GitHub](https://github.com/Aswin-2266) • [Portfolio](https://portfolio-aswin04.vercel.app/)
+
+---
+
+## 📜 License
+
+This project is licensed under the **MIT License**. Feel free to fork and customize it for your own use!
+
+---
+
+## 📥 Clone & Customize
+
+```bash
+git clone https://github.com/Aswin-2266/Portfolio
+cd Portfolio
+npm install  # or yarn install
+
+# Replace the Formspree endpoint in src/pages/Contact.tsx with your own:
+# https://formspree.io/f/mkgbdoon
+
+npm run dev  # or yarn dev
