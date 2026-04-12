@@ -232,7 +232,7 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="glass-effect border-border"
+                      className="bg-background/50 border-input focus-visible:ring-primary"
                     />
                   </div>
                   <div>
@@ -243,7 +243,7 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="glass-effect border-border"
+                      className="bg-background/50 border-input focus-visible:ring-primary"
                     />
                   </div>
                 </div>
@@ -255,7 +255,7 @@ const Contact = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="glass-effect border-border"
+                    className="bg-background/50 border-input focus-visible:ring-primary"
                   />
                 </div>
                 <div>
@@ -266,7 +266,7 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     rows={5}
-                    className="glass-effect border-border"
+                    className="bg-background/50 border-input focus-visible:ring-primary"
                   />
                 </div>
                 <Button 

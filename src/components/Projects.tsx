@@ -125,8 +125,8 @@ const Projects = () => {
           {categories.map((category) => (
             <Button
               key={category}
-              variant={activeCategory === category ? "default" : "outline"}
-              className="rounded-full px-6"
+              variant={activeCategory === category ? "default" : "secondary"}
+              className={`rounded-full px-6 ${activeCategory !== category ? "bg-secondary/70 hover:bg-secondary/90 text-secondary-foreground" : ""}`}
               onClick={() => setActiveCategory(category)}
             >
               {category}
@@ -143,20 +143,6 @@ const Projects = () => {
                 transform transition-all duration-300 hover:scale-[1.02] hover:shadow-xl"
               onClick={() => openProjectModal(project)}
             >
-              {/* Persistent Eye Icon at Top-Right */}
-              <Button
-                variant="ghost"
-                size="icon"
-                className="absolute top-3 right-3 z-10 bg-background/70 hover:bg-accent p-2 shadow-lg rounded-full"
-                onClick={e => {
-                  e.stopPropagation();
-                  openProjectModal(project);
-                }}
-              >
-                <Eye size={22} className="text-foreground" />
-                <span className="sr-only">View Details</span>
-              </Button>
-              
               <CardHeader className="pb-4 pt-6">
                 <div className="flex items-center gap-4 mb-4">
                   {project.icon}
@@ -185,7 +171,8 @@ const Projects = () => {
                   {project.github && (
                     <Button
                       size="sm"
-                      className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground"
+                      variant="outline"
+                      className="flex-1 border-border hover:bg-accent"
                       asChild
                       onClick={e => e.stopPropagation()}
                     >
@@ -199,8 +186,7 @@ const Projects = () => {
                   {project.demo && (
                     <Button
                       size="sm"
-                      variant="outline"
-                      className="flex-1 border-border hover:bg-accent"
+                      className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground"
                       asChild
                       onClick={e => e.stopPropagation()}
                     >

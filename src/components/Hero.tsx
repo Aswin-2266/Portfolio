@@ -67,7 +67,7 @@ const Hero = () => {
               <Button
                 variant="ghost"
                 size="icon"
-                className="hover:text-primary"
+                className="hover:text-primary hover:bg-primary/10 transition-transform hover:scale-110 w-12 h-12"
                 asChild
               >
                 <a
@@ -75,13 +75,13 @@ const Hero = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Github size={24} />
+                  <Github size={28} />
                 </a>
               </Button>
               <Button
                 variant="ghost"
                 size="icon"
-                className="hover:text-primary"
+                className="hover:text-primary hover:bg-primary/10 transition-transform hover:scale-110 w-12 h-12"
                 asChild
               >
                 <a
@@ -89,30 +89,31 @@ const Hero = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Linkedin size={24} />
+                  <Linkedin size={28} />
                 </a>
               </Button>
               <Button
                 variant="ghost"
                 size="icon"
-                className="hover:text-primary"
+                className="hover:text-primary hover:bg-primary/10 transition-transform hover:scale-110 w-12 h-12"
                 onClick={scrollToContact}
               >
-                <Mail size={24} />
+                <Mail size={28} />
               </Button>
             </div>
           </div>
 
           {/* Hero Image/Illustration */}
           <div className="flex justify-center lg:justify-end animate-float">
-            <div className="relative">
-              <div className="w-80 h-80 md:w-96 md:h-96 bg-gradient-to-br from-primary/20 to-green-400/20 rounded-full blur-3xl absolute -top-10 -left-10"></div>
+            <div className="relative group">
+              <div className="w-80 h-80 md:w-96 md:h-96 bg-gradient-to-br from-primary/30 to-purple-500/30 rounded-full blur-3xl absolute -top-4 -left-4 transition-all duration-500 group-hover:scale-110"></div>
+              <div className="w-80 h-80 md:w-96 md:h-96 bg-gradient-to-tl from-blue-400/20 to-teal-400/20 rounded-full blur-2xl absolute -bottom-4 -right-4 transition-all duration-500 group-hover:scale-105"></div>
 
-              <div className="w-72 h-72 md:w-80 md:h-80 bg-gradient-to-br from-blue-400 to-green-400 rounded-full flex items-center justify-center text-white text-6xl font-bold relative z-10 glass-effect">
+              <div className="w-72 h-72 md:w-80 md:h-80 bg-gradient-to-br from-primary via-blue-500 to-purple-500 p-1 rounded-full flex items-center justify-center text-white text-6xl font-bold relative z-10 shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]">
                 <img
                   src="my-image.jpg"
                   alt="Aswin's Profile Picture"
-                  className="w-full h-full object-cover rounded-full"
+                  className="w-full h-full object-cover rounded-full border-4 border-background"
                 />
               </div>
 
