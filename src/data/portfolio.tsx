@@ -65,6 +65,16 @@ export const portfolioData = {
   },
   projects: [
     {
+      title: "Trendsetter Premium Clothing Shop",
+      description: "A modern, premium e-commerce platform for clothing. Features a responsive UI, product catalog, and seamless shopping experience.",
+      tech: ["Next.js", "React", "Tailwind CSS", "Supabase"],
+      icon: <Globe className="text-pink-500" size={32} />,
+      github: "https://github.com/Aswin-2266/Clothing-Shop",
+      demo: "https://trendsetter-premium.vercel.app/",
+      category: "Full-Stack",
+      images: []
+    },
+    {
       title: "Personal Sustainability Tracker",
       description: "Full-stack web app with user authentication, sustainability data logging, leaderboard, and visualization. Increased eco-friendly actions by 25%.",
       tech: ["React", "Express.js", "Node.js", "PostgreSQL", "JWT", "bcrypt"],
