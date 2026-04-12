@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ThemeToggle from "@/components/ThemeToggle";
+import { portfolioData } from "@/data/portfolio";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -42,7 +43,7 @@ const Header = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-14 sm:h-16">
           <div className="text-lg sm:text-xl font-bold text-gradient font-poppins">
-            Aswin S
+            {portfolioData.hero.name}
           </div>
 
           {/* Desktop Navigation */}
@@ -62,7 +63,7 @@ const Header = () => {
           <div className="hidden md:flex items-center space-x-3">
             <ThemeToggle />
             <a
-              href="https://drive.google.com/drive/folders/1DQFLudEdHGhN86xVA2fbUdWDTR872zNr?usp=drive_link"
+              href={portfolioData.hero.resumeLink}
               target="_blank"
               rel="noopener noreferrer"
             >

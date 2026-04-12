@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { ExternalLink, Github, Zap, Smartphone, Globe, Cpu, Eye, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { portfolioData } from '@/data/portfolio';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import {
@@ -28,66 +29,7 @@ const Projects = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const projects: Project[] = [
-    {
-      title: "Personal Sustainability Tracker",
-      description: "Full-stack web app with user authentication, sustainability data logging, leaderboard, and visualization. Increased eco-friendly actions by 25%.",
-      tech: ["React", "Express.js", "Node.js", "PostgreSQL", "JWT", "bcrypt"],
-      icon: <Globe className="text-green-500" size={32} />,
-      github: "https://github.com/Aswin-2266/personal-sustainability-tracker",
-      demo: "https://personal-sustainability-tracker.vercel.app/login",
-      category: "Full-Stack",
-      images: [
-        "/project-images/sustainability-tracker-1.png",
-        "/project-images/sustainability-tracker-2.png",
-        "/project-images/sustainability-tracker-3.png",
-        "/project-images/sustainability-tracker-4.png",
-        "/project-images/sustainability-tracker-5.png",
-      ]
-    },
-    {
-      title: "AWS S3 File Manager",
-      description: "File management system with upload/download via AWS S3 and email notifications. Boosted file access and satisfaction by 30%.",
-      tech: ["HTML/CSS", "JavaScript", "Java", "Spring Boot", "AWS S3", "JavaMailSender"],
-      icon: <Cpu className="text-orange-500" size={32} />,
-      github: "https://github.com/Aswin-2266/S3FileManager",
-      demo: null,
-      category: "Full-Stack",
-      images: [
-        "/project-images/s3-file-manager-1.png",
-        "/project-images/s3-file-manager-2.png",
-        "/project-images/s3-file-manager-3.png",
-        "/project-images/s3-file-manager-4.png",
-      ]
-    },
-    {
-      title: "Smart Forests – IoT Precision Farming",
-      description: "IoT-based precision farming system with real-time farming data and auto irrigation. Reduced water use by 15% and improved yield.",
-      tech: ["HTML/CSS", "ESP32", "Firebase", "Weather API", "Soil Sensors"],
-      icon: <Zap className="text-blue-500" size={32} />,
-      github: null,
-      demo: "https://drive.google.com/drive/u/0/folders/1zRN8hcxwmR72j5tUu1LuPoXAhQ8HUfQM",
-      category: "IoT",
-      images: [
-        "/project-images/smart-forests-1.jpg",
-      ]
-    },
-    {
-      title: "Snowfall Detection System",
-      description: "IoT monitoring system with real-time alerts, dashboard, and SMS/email notifications. Improved snow-clearing efficiency by 20%.",
-      tech: ["HTML/CSS", "Firebase", "DHT22", "Piezo", "TDS Sensors"],
-      icon: <Smartphone className="text-purple-500" size={32} />,
-      github: null,
-      demo: "https://drive.google.com/drive/u/0/folders/1n_hbfHQY-mEPegKZkOiMFk1eukXvDdlH",
-      category: "IoT",
-      images: [
-        "/project-images/snowfall-detection-1.jpg",
-        "/project-images/snowfall-detection-2.png",
-        "/project-images/snowfall-detection-3.png",
-        "/project-images/snowfall-detection-4.jpeg",
-      ]
-    }
-  ];
+  const projects = portfolioData.projects;
 
   const categories = ["All", "Full-Stack", "IoT"];
 

@@ -1,5 +1,6 @@
 import { ArrowRight, Download, Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { portfolioData } from "@/data/portfolio";
 
 const Hero = () => {
   const scrollToProjects = () => {
@@ -27,15 +28,13 @@ const Hero = () => {
           <div className="text-center lg:text-left animate-fade-in-up">
             <p className="text-primary font-medium mb-4 text-lg">Hello, I'm</p>
             <h1 className="text-4xl md:text-6xl font-bold font-poppins mb-6">
-              <span className="text-gradient">Aswin S</span>
+              <span className="text-gradient">{portfolioData.hero.name}</span>
             </h1>
             <h2 className="text-2xl md:text-3xl font-semibold text-gray-700 mb-6">
-              Electronics & Communication Engineer
+              {portfolioData.hero.title}
             </h2>
             <p className="text-lg text-gray-600 mb-8 max-w-2xl">
-              Final-year ECE student passionate about IoT, web development, and
-              sustainable technology. Building innovative solutions that bridge
-              hardware and software for a better tomorrow.
+              {portfolioData.hero.bio}
             </p>
 
             {/* CTA Buttons */}
@@ -48,7 +47,7 @@ const Hero = () => {
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
               <a
-                href="https://drive.google.com/drive/folders/1DQFLudEdHGhN86xVA2fbUdWDTR872zNr?usp=drive_link"
+                href={portfolioData.hero.resumeLink}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -64,42 +63,19 @@ const Hero = () => {
 
             {/* Social Links */}
             <div className="flex gap-4 justify-center lg:justify-start">
-              <Button
-                variant="ghost"
-                size="icon"
-                className="hover:text-primary hover:bg-primary/10 transition-transform hover:scale-110 w-12 h-12"
-                asChild
-              >
-                <a
-                  href="https://github.com/Aswin-2266"
-                  target="_blank"
-                  rel="noopener noreferrer"
+              {portfolioData.socialLinks.map((link, index) => (
+                <Button
+                  key={index}
+                  variant="ghost"
+                  size="icon"
+                  className="hover:text-primary hover:bg-primary/10 transition-transform hover:scale-110 w-12 h-12"
+                  asChild
                 >
-                  <Github size={28} />
-                </a>
-              </Button>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="hover:text-primary hover:bg-primary/10 transition-transform hover:scale-110 w-12 h-12"
-                asChild
-              >
-                <a
-                  href="https://linkedin.com/in/aswin41"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Linkedin size={28} />
-                </a>
-              </Button>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="hover:text-primary hover:bg-primary/10 transition-transform hover:scale-110 w-12 h-12"
-                onClick={scrollToContact}
-              >
-                <Mail size={28} />
-              </Button>
+                  <a href={link.url} target="_blank" rel="noopener noreferrer">
+                    {link.icon}
+                  </a>
+                </Button>
+              ))}
             </div>
           </div>
 

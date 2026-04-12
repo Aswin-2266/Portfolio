@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
+import { portfolioData } from '@/data/portfolio';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -63,63 +64,6 @@ const Contact = () => {
     });
   };
 
-  const contactInfo = [
-    {
-      icon: <Mail className="text-primary" size={24} />,
-      title: "Email",
-      value: "aswinmsc123@gmail.com",
-      link: "mailto:aswinmsc123@gmail.com"
-    },
-    {
-      icon: <Phone className="text-green-500" size={24} />,
-      title: "Phone",
-      value: "8428226636",
-      link: "tel:8428226636"
-    }
-  ];
-
-  const socialLinks = [
-    {
-      icon: <Github size={24} />,
-      name: "GitHub",
-      url: "https://github.com/Aswin-2266",
-      color: "hover:text-foreground"
-    },
-    {
-      icon: <Linkedin size={24} />,
-      name: "LinkedIn",
-      url: "https://linkedin.com/in/aswin41",
-      color: "hover:text-blue-500"
-    },
-    {
-      icon: <Mail size={24} />,
-      name: "Email",
-      url: "mailto:aswinmsc123@gmail.com",
-      color: "hover:text-primary"
-    }
-  ];
-
-  const education = [
-    {
-      icon: <GraduationCap className="text-primary" size={20} />,
-      degree: "Electronics and Communication Engineering",
-      institution: "Rathinam Technical Campus (Anna University)",
-      grade: "CGPA: 7.9"
-    },
-    {
-      icon: <GraduationCap className="text-blue-500" size={20} />,
-      degree: "HSC",
-      institution: "Govt. Higher Secondary School, Coimbatore",
-      grade: "79.5%"
-    },
-    {
-      icon: <GraduationCap className="text-green-500" size={20} />,
-      degree: "SSLC",
-      institution: "Sree Narayana Mission HSS, Coimbatore", 
-      grade: "85.4%"
-    }
-  ];
-
   return (
     <section id="contact" className="py-20 border-t border-border">
       <div className="container mx-auto px-4">
@@ -138,14 +82,13 @@ const Contact = () => {
             <div>
               <h3 className="text-2xl font-semibold mb-6 font-poppins text-foreground">Let's Connect</h3>
               <p className="text-muted-foreground mb-8 leading-relaxed">
-                Electronics & Communication Engineering student with expertise in full-stack development, 
-                IoT systems, and cloud computing. Open to internships, projects, and collaboration opportunities.
+                {portfolioData.about.paragraphs[0]}
               </p>
             </div>
 
             {/* Contact Details */}
             <div className="space-y-4">
-              {contactInfo.map((info, index) => (
+              {portfolioData.contact.contactInfo.map((info, index) => (
                 <div key={index} className="flex items-center gap-4 p-4 rounded-lg glass-effect">
                   {info.icon}
                   <div>
@@ -168,7 +111,7 @@ const Contact = () => {
                 Education
               </h4>
               <div className="space-y-3">
-                {education.map((edu, index) => (
+                {portfolioData.contact.education.map((edu, index) => (
                   <div key={index} className="flex items-start gap-3 p-3 rounded-lg glass-effect/50">
                     {edu.icon}
                     <div>
@@ -201,13 +144,13 @@ const Contact = () => {
             <div>
               <h4 className="text-lg font-semibold mb-4 text-foreground">Follow Me</h4>
               <div className="flex gap-4">
-                {socialLinks.map((social, index) => (
+                {portfolioData.socialLinks.map((social, index) => (
                   <a
                     key={index}
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`p-3 rounded-full glass-effect hover:bg-accent transition-all duration-200 ${social.color} text-muted-foreground`}
+                    className={`p-3 rounded-full glass-effect hover:bg-accent transition-all duration-200 hover:text-primary text-muted-foreground`}
                   >
                     {social.icon}
                   </a>

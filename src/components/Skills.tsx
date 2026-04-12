@@ -1,94 +1,10 @@
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ExternalLink } from 'lucide-react';
+import { portfolioData } from '@/data/portfolio';
 
 const Skills = () => {
-  const skillCategories = [
-     {
-    title: "Programming Languages",
-    skills: ["Java", "C", "JavaScript", "Python", "TypeScript"]
-  },
-  {
-    title: "Web & Backend Technologies",
-    skills: ["React.js", "HTML & CSS", "Node.js", "Express.js", "REST APIs", "Spring Boot"]
-  },
-  {
-    title: "Cloud, Deployment & Databases",
-    skills: [
-      "AWS (S3, IAM)", "Firebase (Authentication, Realtime DB)", "Vercel", "Render", "PostgreSQL", "MongoDB"]
-  },
-  {
-    title: "Tools & Platforms",
-    skills: ["Git & GitHub", "Linux", "Postman", "VS Code", "Canva",]
-  },
-  {
-    title: "Core CS Concepts",
-    skills: ["Data Structures and Algorithms", "Object-Oriented Programming", "API Design", "MVC Architecture"]
-  },
-  {
-    title: "IoT & Embedded Systems",
-    skills: ["Raspberry Pi", "ESP32", "Arduino", "LoRa", "Proteus", "Arduino IDE", "MultiSim", "TinkerCad"]
-  }
-  ];
-
-  const certifications = [
-    {
-      name: "IBM Full Stack Software Developer Specialization (Coursera)",
-      url: "https://www.coursera.org/account/accomplishments/specialization/MJHQPK3D9S1N"
-    },
-    {
-      name: "Meta React Native Specialization (Coursera)",
-      url: "https://www.coursera.org/account/accomplishments/specialization/HEFS6GS7LENU"
-    },
-    {
-      name: "Prototypes in Figma: Creating an Initial Low Fidelity Design (Coursera)",
-      url: "https://www.coursera.org/account/accomplishments/records/7TTYSRWCGG5U"
-    },
-    {
-      name: "UX Design Fundamentals (Coursera)",
-      url: "https://www.coursera.org/account/accomplishments/records/K8LLJKXKAA4H"
-    },
-    {
-      name: "Microsoft Azure Cloud Services (Coursera)",
-      url: "https://www.coursera.org/account/accomplishments/records/TKL3AWTGQ44W"
-    },
-    {
-      name: "UiPath Automation Developer Associate (UiPath)",
-      url: "https://credentials.uipath.com/a7e419c7-85cc-4fd3-b837-dd7775bf269a"
-    }
-  ];
-
-  const hackathons = [
-    "Smart India Hackathon 2024 – Team Lead",
-    "L&T Techgium 8th Edition – Team Lead",
-    "L&T Edutech World Water Day 2025 – Team Lead",
-    "WEN IGNITE Bootcamp 3.0 by Wadhwani Foundation – Team Lead",
-    "UYIR Road Safety Hackathon 2025 – Team Lead"
-  ];
-
-  const internshipExperience = [
-    {
-      title: "Signal & Telecommunication Intern",
-      company: "Southern Railways – Podanur, Coimbatore",
-      duration: "Sept–Oct 2023",
-      description: "Railway automation, relay interlocking, and safety systems.",
-      link: "https://drive.google.com/drive/folders/1vgEZu6M9tLKYWyyTMlOauRwjFVbrkwmx?usp=sharing"
-    },
-    // Add another internship here to see the grid layout in action:
-    // {
-    //   title: "Software Development Intern",
-    //   company: "Another Tech Company",
-    //   duration: "Jan 2024 – Apr 2024",
-    //   description: "Developed and maintained web applications.",
-    //   link: "https://www.example.com"
-    // },
-  ];
-
-  const softSkills = [
-    "Strong Communication & Leadership",
-    "Problem-solving & Team Collaboration",
-    "Self-motivated, Fast Learner"
-  ];
+  const { categories, certifications, hackathons, internshipExperience, softSkills, languages } = portfolioData.skillsData;
 
   const certBadgeClass = "border-accent/70 text-accent-foreground hover:bg-accent/20 hover:shadow-lg hover:scale-105 transition-all duration-500 ease-in-out";
 
@@ -106,7 +22,7 @@ const Skills = () => {
 
         {/* Technical Skills Grid */}
         <div className="grid lg:grid-cols-2 gap-8 mb-16">
-          {skillCategories.map((category, index) => (
+          {categories.map((category, index) => (
             <Card key={index} className="glass-effect shadow-lg">
               <CardHeader className="pb-4">
                 <CardTitle className="text-xl font-poppins text-center text-card-foreground">
@@ -269,7 +185,7 @@ const Skills = () => {
             ))}
           </div>
           <div className="flex flex-wrap justify-center gap-4">
-            {["English", "Tamil", "Malayalam"].map((language, index) => (
+            {languages.map((language, index) => (
               <Badge
                 key={index}
                 variant="outline"
